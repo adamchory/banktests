@@ -13,7 +13,6 @@ const dotenv = require('dotenv').config();
 // //  db = client.db("bankapp")
 // // });
 // function (err, client) {
-    
 //     console.log("Connected successfully to db server");
 
 //     // connect to myproject database
