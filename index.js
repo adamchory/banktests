@@ -54,25 +54,25 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
 // find user account
 app.get('/account/find/:email', function (req, res) {
     
-    const idToken = req.headers.authorization
-    console.log('header:', idToken);
+    // const idToken = req.headers.authorization
+    // console.log('header:', idToken);
 
-    if (!idToken) {
-      res.status(401).send();
-      return
-    } 
-    admin.auth().verifyIdToken(idToken)
-        .then(function(decodedToken) {
-            console.log('decodedToken:',decodedToken);
+    // if (!idToken) {
+    //   res.status(401).send();
+    //   return
+    // } 
+    // admin.auth().verifyIdToken(idToken)
+    //     .then(function(decodedToken) {
+    //         console.log('decodedToken:',decodedToken);
             dal.find(req.params.email).
                 then((user) => {
                     console.log(user);
                     res.send(user);
-            });
-            }).catch(function(error) {
-                console.log('error:', error);
-                res.status(401).send("Token invalid!");
-            });
+               });
+            // }).catch(function(error) {
+            //     console.log('error:', error);
+            //     res.status(401).send("Token invalid!");
+            // });
 });
 
 
