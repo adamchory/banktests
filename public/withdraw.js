@@ -212,7 +212,7 @@ function handleWithdraw(){
     body={show ? (  
             <>
             <h5 className="font-Bold">{`${email}, press to make a deposit to your account`}</h5>
-            <h5 className="font-Bold">{`your account currently has ${amount}`}</h5>
+            <h5 className="font-Bold">{`your account currently has $${amount}`}</h5>
             Withdrawal Amount<br/>
             <input type="input" className="form-control" id="withdraw" placeholder="Enter Withdrawal Amount" value={withdraw} onChange={handleChange} /><br/>
             <button type="submit" className="btn btn-light" onClick={handleWithdraw} disabled={!isValid}>Finalize Withdrawal</button>

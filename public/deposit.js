@@ -197,7 +197,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       body={show ? (  
               <>
               <h5 className="font-Bold">{`${email}, press to make a deposit to your account`}</h5>
-              <h5 className="font-Bold">{`your account currently has ${amount}`}</h5>
+              <h5 className="font-Bold">{`your account currently has $${amount}`}</h5>
               Deposit Amount<br/>
               <input type="input" className="form-control" id="deposit" placeholder="Enter Deposit Amount" value={deposit} onChange={handleChange} /><br/>
               <button type="submit" className="btn btn-light" onClick={handleDeposit} disabled={!isValid}>Finalize Deposit</button>
