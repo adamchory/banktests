@@ -1,2 +1,4 @@
 node_modules
 bankingappadmin.json
+.env
+.env.local
