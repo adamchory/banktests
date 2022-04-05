@@ -2,6 +2,9 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = process.env.uri;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
+    // database Name
+    const dbName = 'bankapp';
+    const db = client.db(dbName);
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
   client.close();
