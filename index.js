@@ -13,7 +13,7 @@ const corsOptions = {
       'https://adam-chorybankapp.herokuapp.com',
     ],
   }
-app.use(cors(corsOptions))
+app.use(cors(/*(corsOptions)*/))
 
 
 // create user account
