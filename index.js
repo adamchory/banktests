@@ -7,12 +7,12 @@ const e = require('express');
 
 // used to serve static files from public directory
 app.use(express.static('public'));
-const corsOptions = {
-    origin: [
-      'http://localhost:3000',
-      'https://adam-chorybankapp.herokuapp.com',
-    ],
-  }
+// const corsOptions = {
+//     origin: [
+//       'http://localhost:3000',
+//       'https://adam-chorybankapp.herokuapp.com',
+//     ],
+//   }
 app.use(cors(/*(corsOptions)*/))
 
 
