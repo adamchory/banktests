@@ -10,7 +10,7 @@ app.use(express.static('public'));
 const corsOptions = {
     origin: [
       'http://localhost:3000',
-      'http://adam-chorybankapp.herokuapp.com',
+      'https://adam-chorybankapp.herokuapp.com',
     ],
   }
 app.use(cors(corsOptions))
