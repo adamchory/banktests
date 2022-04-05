@@ -1,22 +1,45 @@
 //const MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, /*ServerApiVersion*/ } = require('mongodb');
+const dotenv = require('dotenv').config();
 
-const uri = process.env.uri;
-let db = null;
+// const uri = process.env.uri;
+ let db = null;
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(
-//     err => {
-//  db = client.db("bankapp")
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+// client.connect(
+// //     err => {
+// //  db = client.db("bankapp")
+// // });
+// function (err, client) {
+//     console.log("Connected successfully to db server");
+
+//     // connect to myproject database
+//     db = client.db('bankapp');
 // });
-function (err, client) {
-    console.log("Connected successfully to db server");
 
-    // connect to myproject database
-    db = client.db('bankapp');
-});
+async function main(){
+    /**
+     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+     */
+     const uri = process.env.MONGODB_URI;
+ 
+
+    const client = new MongoClient(uri);
+ 
+    try {
+        // Connect to the MongoDB cluster
+       db = await client.connect();
+       console.log('success?')
+ 
+ 
+    } catch (e) {
+        console.error(e);
+    } 
+}
+main().catch(console.error);
 
 // connect to mongo
 // MongoClient.connect(process.env.DB) 
