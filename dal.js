@@ -10,15 +10,17 @@ const uri = process.env.MONGODB_URI;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(
-                err => {
-            db = client.db("bankapp")
+            //     err => {
+            // db = client.db("bankapp")
+            // });
+            
+            function (err, client) {
+                console.log("Connected successfully to db server");
+    
+                // connect to myproject database
+                db = client.db('bankapp');
             });
-// function (err, client) {
-//     console.log("Connected successfully to db server");
-
-//     // connect to myproject database
-//     db = client.db('bankapp');
-// });
+        
 
 // async function main(){
 //     /**
