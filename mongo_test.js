@@ -1,5 +1,21 @@
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = process.env.uri;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+// const MongoClient = require('mongodb').MongoClient;
+
+// MongoClient.connect(process.env.DB) 
+//             .then(x => {
+//                 console.log(`Connected to Mongo! Database name: ${x.connections[0].name}`)
+//             })
+//             .catch(err => console.log(err))
+//                 console.log("Connected successfully to db server");
+
+//const url = 'mongodb://localhost:27017';
 // const MONGODB_URI = process.env.MONGODB_URI
 // const MONGODB_DB = process.env.MONGODB_DB
 

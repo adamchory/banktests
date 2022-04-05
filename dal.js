@@ -1,14 +1,23 @@
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
-//let db = null;
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = process.env.uri;
+let db = null;
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+ db = client.db("bankapp")
+});
 
 // connect to mongo
-MongoClient.connect(process.env.DB) 
-            .then(x => {
-                console.log(`Connected to Mongo! Database name: ${x.connections[0].name}`)
-            })
-            .catch(err => console.log(err))
-                console.log("Connected successfully to db server");
+// MongoClient.connect(process.env.DB) 
+//             .then(x => {
+//                 console.log(`Connected to Mongo! Database name: ${x.connections[0].name}`)
+//             })
+//             .catch(err => console.log(err))
+//                 console.log("Connected successfully to db server");
 
     // connect to myproject database
    // db = client.db('bankingapplication');
