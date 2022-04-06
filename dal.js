@@ -1,7 +1,6 @@
 //const MongoClient = require('mongodb').MongoClient;
 //const url = 'mongodb://localhost:27017';
 
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const dotenv = require('dotenv').config();
 
@@ -13,7 +12,7 @@ client.connect(
             //     err => {
             // db = client.db("bankapp")
             // });
-            
+
             function (err, client) {
                 console.log("Connected successfully to db server");
     
